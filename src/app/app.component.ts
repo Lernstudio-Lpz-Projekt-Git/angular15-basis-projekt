@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular15-basis-projekt';
+
+  showParentFrame(): void {
+    console.log("Ausgabe des Parent-App-Componente!");
+  }
 }

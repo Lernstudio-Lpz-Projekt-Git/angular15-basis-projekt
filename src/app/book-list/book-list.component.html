@@ -1,0 +1,15 @@
+<!-- Übernahme der IF-Bedingungen aus der app.componente -->
+<!-- If bookmode = null wird die Liste angezeigt -->
+<div *ngIf="!bookmode" id="liste">
+    <h1>Books</h1>
+    <ul class="book-list">
+      <li *ngFor="let book of books">
+        <app-book-list-item [book]="book" (selectClickBook)="showDetails($event)"></app-book-list-item>
+      </li>
+      <li *ngIf="!books.length">
+        No books available.
+      </li>
+    </ul>
+  </div>
+  <!-- If bookmode = ein Book-Objekt werden die Details angezeigt -->
+  <app-book-details *ngIf="bookmode" (leaveEmitter)="showList()" [book]="bookmode"></app-book-details>
